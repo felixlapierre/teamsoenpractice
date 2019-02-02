@@ -1,9 +1,14 @@
 import express from "express";
-const app = express();
+import mongoose from "mongoose";
+import {Routes} from "./routes/userRoute";
 
-app.get("/", (req, res) => {
-    res.send("Hello World!");
-});
+const app = express();
+const routes = new Routes();
+routes.routes(app);
+
+// app.get("/", (req, res) => {
+//     res.send("Hello World!");
+// });
 
 app.listen(8000, () => {
     // tslint:disable-next-line:no-console
