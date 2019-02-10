@@ -22,7 +22,7 @@ export class UserController {
             if (err) {
                 res.send(err);
             }
-            res.json(User);
+            res.json(user);
         });
     }
     public getUserWithID(req: Request, res: Response) {
