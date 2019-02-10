@@ -8,6 +8,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose = __importStar(require("mongoose"));
+const Schema = mongoose.Schema;
 exports.UserSchema = new mongoose.Schema({
     email: {
         type: String,
@@ -20,6 +21,16 @@ exports.UserSchema = new mongoose.Schema({
     lastName: {
         type: String,
         required: "Enter a last name"
+    },
+    company: {
+        type: String
+    },
+    phone: {
+        type: Number
+    },
+    created_date: {
+        type: Date,
+        default: Date.now
     }
 });
 //# sourceMappingURL=userModel.js.map

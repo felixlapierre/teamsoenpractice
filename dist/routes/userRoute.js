@@ -14,40 +14,15 @@ class Routes {
         });
         // User
         app.route("/user")
-            .get((req, res) => {
-            // Get all users
-            res.status(200).send({
-                message: "GET all users successful!"
-            });
-        })
+            .get(this.userController.getUsers)
             // POST endpoint
-            .post((req, res) => {
-            // Create new user
-            res.status(200).send({
-                message: "POST request users successful!"
-            });
-        });
+            .post(this.userController.addNewUser);
         // User detail
         app.route("/user/:userId")
             // get specific user
-            .get((req, res) => {
-            // Get a single user detail
-            res.status(200).send({
-                message: "GET single user successful!"
-            });
-        })
-            .put((req, res) => {
-            // Update a user
-            res.status(200).send({
-                message: "PUT update user successful!"
-            });
-        })
-            .delete((req, res) => {
-            // Delete a user
-            res.status(200).send({
-                message: "DELETE user successful!"
-            });
-        });
+            .get(this.userController.getUserWithID)
+            .put(this.userController.updateUser)
+            .delete(this.userController.deleteUser);
     }
 }
 exports.Routes = Routes;

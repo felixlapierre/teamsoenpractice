@@ -14,11 +14,43 @@ class UserController {
     addNewUser(req, res) {
         const newUser = new User(req.body);
         console.log("Got posty boi");
-        newUser.save((err, contact) => {
+        newUser.save((err, user) => {
             if (err) {
                 res.send(err);
             }
-            res.json(contact);
+            res.json(user);
+        });
+    }
+    getUsers(req, res) {
+        User.find({}, (err, user) => {
+            if (err) {
+                res.send(err);
+            }
+            res.json(User);
+        });
+    }
+    getUserWithID(req, res) {
+        User.findById(req.params.userID, (err, user) => {
+            if (err) {
+                res.send(err);
+            }
+            res.json(user);
+        });
+    }
+    updateUser(req, res) {
+        User.findOneAndUpdate({ _id: req.params.userID }, req.body, { new: true }, (err, user) => {
+            if (err) {
+                res.send(err);
+            }
+            res.json(User);
+        });
+    }
+    deleteUser(req, res) {
+        User.remove({ _id: req.params.userID }, (err) => {
+            if (err) {
+                res.send(err);
+            }
+            res.json({ message: "Successfully deleted user!" });
         });
     }
 }
