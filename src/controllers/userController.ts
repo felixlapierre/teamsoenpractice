@@ -25,8 +25,8 @@ export class UserController {
             res.json(user);
         });
     }
-    public getUserWithID(req: Request, res: Response) {
-        User.findById(req.params.userID, (err, user) => {
+    public getUserWithId(req: Request, res: Response) {
+        User.findById(req.params.userId, (err, user) => {
             if (err) {
                 res.send(err);
             }
@@ -34,7 +34,7 @@ export class UserController {
         });
     }
     public updateUser(req: Request, res: Response) {
-        User.findOneAndUpdate({ _id: req.params.userID },
+        User.findOneAndUpdate({ _id: req.params.userId },
         req.body, { new: true }, (err, user) => {
             if (err) {
                 res.send(err);
@@ -43,7 +43,7 @@ export class UserController {
         });
     }
     public deleteUser(req: Request, res: Response) {
-        User.remove({ _id: req.params.userID }, (err) => {
+        User.remove({ _id: req.params.userId }, (err) => {
             if (err) {
                 res.send(err);
             }

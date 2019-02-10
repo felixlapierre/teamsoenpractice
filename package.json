@@ -7,7 +7,7 @@
     "prebuild": "tslint -c tslint.json -p tsconfig.json --fix",
     "build": "tsc",
     "prestart": "npm run build",
-    "start": "nodemon ./dist/server.js",
+    "start": "nodemon ./dist/server.js -e ts",
     "dev": "ts-node ./src/server.ts",
     "prod": "npm run build && npm run start",
     "test": "echo \"Error: no test specified\" && exit 1"

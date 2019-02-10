@@ -23,7 +23,7 @@ export class Routes {
         // User detail
         app.route("/user/:userId")
         // get specific user
-        .get(this.userController.getUserWithID)
+        .get(this.userController.getUserWithId)
         .put(this.userController.updateUser)
         .delete(this.userController.deleteUser);
 

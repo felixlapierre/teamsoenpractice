@@ -2,7 +2,7 @@ import * as bodyParser from "body-parser";
 import express from "express";
 import {Routes} from "./routes/userRoute";
 
-import {connect, Mongoose} from "mongoose";
+import {connect, set} from "mongoose";
 
 class App {
     public app: express.Application;
@@ -25,6 +25,7 @@ class App {
     }
 
     private mongoSetup(): void {
+        set("useFindAndModify", false);
         connect(this.mongoUrl, {useNewUrlParser: true});
     }
 }
