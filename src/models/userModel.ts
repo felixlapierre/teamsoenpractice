@@ -1,4 +1,5 @@
 import * as mongoose from "mongoose";
+const Schema = mongoose.Schema;
 
 export const UserSchema = new mongoose.Schema({
     email: {
@@ -12,5 +13,16 @@ export const UserSchema = new mongoose.Schema({
     lastName: {
         type: String,
         required: "Enter a last name"
+    },
+    company: {
+        type: String
+    },
+    phone: {
+        type: Number
+    },
+    created_date: {
+        type: Date,
+        default: Date.now
     }
+
 });
