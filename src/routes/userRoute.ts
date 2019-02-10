@@ -14,7 +14,43 @@ export class Routes {
             });
         });
 
+        // User
         app.route("/user")
-        .post(this.userController.addNewUser);
+        .get((req: Request, res: Response) => {
+            // Get all users
+            res.status(200).send({
+                message: "GET all users successful!"
+            });
+        })
+        // POST endpoint
+        .post((req: Request, res: Response) => {
+            // Create new user
+            res.status(200).send({
+                message: "POST request users successful!"
+            });
+        });
+
+        // User detail
+        app.route("/user/:userId")
+        // get specific user
+        .get((req: Request, res: Response) => {
+            // Get a single user detail
+            res.status(200).send({
+                message: "GET single user successful!"
+            });
+        })
+        .put((req: Request, res: Response) => {
+            // Update a user
+            res.status(200).send({
+                message: "PUT update user successful!"
+            });
+        })
+        .delete((req: Request, res: Response) => {
+            // Delete a user
+            res.status(200).send({
+                message: "DELETE user successful!"
+            });
+        });
+
     }
 }

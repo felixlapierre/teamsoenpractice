@@ -13,6 +13,7 @@ const User = mongoose.model("User", userModel_1.UserSchema);
 class UserController {
     addNewUser(req, res) {
         const newUser = new User(req.body);
+        console.log("Got posty boi");
         newUser.save((err, contact) => {
             if (err) {
                 res.send(err);

@@ -8,7 +8,7 @@ export class UserController {
 
     public addNewUser(req: Request, res: Response) {
         const newUser = new User(req.body);
-
+        console.log("Got posty boi");
         newUser.save((err, contact) => {
             if (err) {
                 res.send(err);

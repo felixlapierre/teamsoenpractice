@@ -78,3 +78,11 @@ typings/
 
 # DynamoDB Local files
 .dynamodb/
+
+#vscode
+
+.vscode
+.vscode/*
+
+dist
+dist/*
