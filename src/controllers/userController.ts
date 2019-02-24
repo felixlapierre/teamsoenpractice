@@ -34,6 +34,7 @@ export class UserController {
         });
     }
     public updateUser(req: Request, res: Response) {
+        console.log({message: "Updating owo"});
         User.findOneAndUpdate({ _id: req.params.userId },
         req.body, { new: true }, (err, user) => {
             if (err) {
